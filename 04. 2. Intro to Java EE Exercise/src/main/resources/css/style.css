@@ -1,0 +1,104 @@
+html {
+    box-sizing: border-box;
+    font: 16px/1.5 "Helvetica", sans-serif;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #EEE;
+    text-align: center;
+    width: 50%;
+    margin: auto;
+}
+
+h1, h4 {
+    margin: 2rem 0;
+}
+
+h2{
+    margin: 1rem 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    margin: 2rem 2rem;
+    border: none;
+    outline: none;
+    background: black;
+    color: white;
+    padding: 0.4rem 0.9rem;
+    border-radius: 15px;
+    font-size: 1rem;
+}
+
+.button:hover {
+    /*background: darkgreen;*/
+    background: deepskyblue;
+    color: white;
+}
+
+#profile-button{
+    margin-top: 2rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+form{
+    margin: 1rem 0;
+}
+
+#name, #age, #color, #breed{
+    width: 30%;
+}
+
+#color{
+    margin-left: 6px;
+}
+#age{
+    margin-left: 14px;
+}
+
+li{
+    /*list-style-position: inside;*/
+    margin: 1rem 0;
+    list-style-type: none;
+}
+
+li:hover{
+    color:deepskyblue;
+}
+
+.current-cat{
+    /*text-decoration: underline;*/
+}
+
+.current-cat:hover{
+    color:deepskyblue;
+}
+
+.red-text{
+    color: red;
+}
+
+input {
+    margin-bottom: 1rem;
+}
+
+.catName{
+    color:deepskyblue;
+}
