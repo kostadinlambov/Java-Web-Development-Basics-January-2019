@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="tests@localhost" uuid="3a84c945-cac8-4e4f-98bb-40830fb0503d">
+      <database-info product="MySQL" version="10.3.12-MariaDB" jdbc-version="4.2" driver-name="MariaDB connector/J" driver-version="2.2.1" dbms="MARIADB" exact-version="10.3.12">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <introspection-schemas>*:@</introspection-schemas>
+    </data-source>
+    <data-source name="items_db@localhost" uuid="e6781cda-e6d3-4640-9845-adf30754ccda">
+      <database-info product="MySQL" version="10.3.12-MariaDB" jdbc-version="4.2" driver-name="MariaDB connector/J" driver-version="2.2.1" dbms="MARIADB" exact-version="10.3.12">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <introspection-schemas>*:@,items_db</introspection-schemas>
+    </data-source>
+    <data-source name="usersdb@localhost" uuid="66186be8-a252-4209-8a21-41f9a6ab077d">
+      <database-info product="MySQL" version="10.3.12-MariaDB" jdbc-version="4.2" driver-name="MariaDB connector/J" driver-version="2.2.1" dbms="MARIADB" exact-version="10.3.12">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <introspection-schemas>*:@</introspection-schemas>
+    </data-source>
+  </component>
+</project>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<h1>It works!</h1>
+
+<script>
+    const http = function () {
+        const send = (method, url, body) => {
+            return new Promise((resolve, reject) => {
+                const data = JSON.stringify(body);
+
+                $.ajax({
+                    url,
+                    method,
+                    data,
+                    success: resolve,
+                    error: reject,
+                });
+            });
+        };
+
+        const post = (url, body) => send('POST', url, body);
+        const get = (url) => send('GET', url, null);
+
+        return {get, post, send};
+    }();
+
+    const onLoad = async function() {
+        var url = "/items";
+        const items = await http.get(url);
+        console.log(items);
+    };
+
+    $(onLoad);
+</script>
+</body>
+</html>
