@@ -51,7 +51,7 @@ public class IndexServlet extends HttpServlet {
 
         productsViewModels.forEach(product ->
                 productsSb.append(String
-                        .format("<li><a href=\"/products/details?productName=%s\">%s</a></li>",
+                        .format("<li><a href=\"/products/details?productName=%s\"><i class=\"fab fa-product-hunt text-info\"></i> %s</a></li>",
                         product.getName(),product.getName())));
 
        return productsSb.toString();

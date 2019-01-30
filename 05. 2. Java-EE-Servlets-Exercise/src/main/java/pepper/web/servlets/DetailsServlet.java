@@ -36,6 +36,5 @@ public class DetailsServlet extends HttpServlet {
                 .replace("{{productType}}", productServiceModel.getType().toUpperCase());
 
         resp.getWriter().println(htmlFileContent);
-
     }
 }
