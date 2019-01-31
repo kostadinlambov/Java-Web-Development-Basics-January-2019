@@ -45,7 +45,7 @@
                             <label for="name">Name:</label>
                         </div>
                         <div>
-                            <input type="text" id="name" name="name">
+                            <input type="text" id="name" name="name" required>
                         </div>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
                             <label for="description">Description:</label>
                         </div>
                         <div >
-                            <textarea id="description" name="description" cols="22" rows="4"></textarea>
+                            <textarea id="description" name="description" cols="22" rows="4" required></textarea>
                         </div>
                     </div>
                 </div>
@@ -65,8 +65,8 @@
                             <label for="typeSelect">Type:</label>
                         </div>
                         <div>
-                            <select name="type" id="typeSelect">
-                                <option disabled selected>Choose type...</option>
+                            <select name="type" id="typeSelect" required>
+                                <option selected disabled value="">Choose type...</option>
                                 {{typeOptions}}
                             </select>
                         </div>
