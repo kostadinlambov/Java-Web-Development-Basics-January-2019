@@ -1,5 +1,6 @@
 package pepper.web.servlets;
 
+import pepper.domain.models.service.ProductServiceModel;
 import pepper.domain.models.view.AllProductsViewModel;
 import pepper.services.ProductService;
 import pepper.util.HtmlReader;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @WebServlet("/")
@@ -35,9 +37,26 @@ public class IndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String htmlFileContent = this.htmlReader
                 .readHtmlFile(INDEX_HTML_FILE_PATH)
+                .replace("{{replaceProductCSS}}", formatListItemsCSS())
                 .replace("{{listItems}}", formatListItems());
 
         resp.getWriter().println(htmlFileContent);
+    }
+
+    private String formatListItemsCSS() {
+        StringBuilder productsCSSSb = new StringBuilder();
+
+        int allProductsSize = this.productService.getAllProducts().size();
+        for (int i = 0; i < allProductsSize-1; i++) {
+            int childNumber = i + 2;
+            double animationDelay = (childNumber - 1)* 0.15;
+
+            productsCSSSb
+                    .append(String.format("ul li:nth-child(%d) {animation-delay: %.2fs}",
+                    childNumber, animationDelay));
+        }
+
+        return productsCSSSb.toString();
     }
 
     private String formatListItems(){

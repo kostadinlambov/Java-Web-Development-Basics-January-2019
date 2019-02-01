@@ -13,10 +13,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 
 @WebServlet("/products/create")
 public class ProductCreateServlet extends HttpServlet {
     private final static String CREATE_PRODUCT_HTML_FILE_PATH = "C:\\Users\\valch\\Desktop\\Java-Web-Projects\\01. Java Web - January 2019\\01. Java-Web-Development-Basics-January 2019\\05. 2. Java-EE-Servlets-Exercise\\src\\main\\resources\\views\\create-product.html";
+
+    private final static String CREATE_PRODUCT_ERROR_HTML_FILE_PATH = "C:\\Users\\valch\\Desktop\\Java-Web-Projects\\01. Java Web - January 2019\\01. Java-Web-Development-Basics-January 2019\\05. 2. Java-EE-Servlets-Exercise\\src\\main\\resources\\views\\create-product-error.html";
 
     private final ProductService productService;
     private final HtmlReader htmlReader;
@@ -33,14 +36,26 @@ public class ProductCreateServlet extends HttpServlet {
 
         String htmlFileContent = this.htmlReader
                 .readHtmlFile(CREATE_PRODUCT_HTML_FILE_PATH)
-                .replace("{{typeOptions}}", this .formatTypeOptions());
+                .replace("{{typeOptions}}", this.formatTypeOptions());
 
         resp.getWriter().println(htmlFileContent);
-
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        List<ProductServiceModel> allProducts = this.productService.getAllProducts();
+
+        for (ProductServiceModel product : allProducts) {
+            if (product.getName().equals(req.getParameter("name"))) {
+                String productCreateErrorHTMLContent = this.htmlReader.readHtmlFile(CREATE_PRODUCT_ERROR_HTML_FILE_PATH);
+
+                productCreateErrorHTMLContent = productCreateErrorHTMLContent.replace("%name",req.getParameter("name") );
+
+                resp.getWriter().println(productCreateErrorHTMLContent);
+                return;
+            }
+        }
 
         ProductServiceModel productServiceModel = new ProductServiceModel();
         productServiceModel.setName(req.getParameter("name"));
@@ -52,12 +67,12 @@ public class ProductCreateServlet extends HttpServlet {
         resp.sendRedirect("/");
     }
 
-    private String  formatTypeOptions(){
+    private String formatTypeOptions() {
         StringBuilder options = new StringBuilder();
 
-        Arrays.stream(Type.values()).forEach(type ->{
+        Arrays.stream(Type.values()).forEach(type -> {
             options
-                    .append(String.format("<option value=\"%s\">%s</option>",type.name(),type.name()))
+                    .append(String.format("<option value=\"%s\">%s</option>", type.name(), type.name()))
                     .append(System.lineSeparator());
         });
 
