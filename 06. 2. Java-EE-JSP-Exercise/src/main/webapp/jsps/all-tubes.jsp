@@ -7,8 +7,8 @@
     <c:import url="templates/head.jsp"/>
 </head>
 <body>
-<main>
-    <div class="container">
+<div class="container">
+    <main>
         <div class="jumbotron text-center mb-0">
             <h1>All Tubes</h1>
             <hr/>
@@ -39,13 +39,13 @@
                 </div>
             </div>
         </div>
-    </div>
-</main>
+    </main>
 
+    <footer>
+        <c:import url="templates/footer.jsp"/>
+    </footer>
 
-<footer>
-    <c:import url="templates/footer.jsp"/>
-</footer>
+</div>
 
 </body>
 </html>

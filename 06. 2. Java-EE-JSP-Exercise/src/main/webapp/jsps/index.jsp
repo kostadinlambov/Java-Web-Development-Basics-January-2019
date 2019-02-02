@@ -5,8 +5,8 @@
     <c:import url="templates/head.jsp"/>
 </head>
 <body>
-<main>
-    <div class="container">
+<div class="container">
+    <main>
         <div class="jumbotron text-center mb-0">
             <h1>Welcome to MeTube!</h1>
             <hr/>
@@ -18,11 +18,11 @@
             </div>
         </div>
 
-    </div>
-</main>
-<footer>
-    <c:import url="templates/footer.jsp"/>
-</footer>
+    </main>
+    <footer>
+        <c:import url="templates/footer.jsp"/>
+    </footer>
+</div>
 
 
 </body>
