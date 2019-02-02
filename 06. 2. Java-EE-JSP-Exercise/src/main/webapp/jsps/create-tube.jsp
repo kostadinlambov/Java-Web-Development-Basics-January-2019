@@ -73,10 +73,10 @@
         </div>
     </div>
 
-
-    <footer>
-        <c:import url="templates/footer.jsp"/>
-    </footer>
 </main>
+<footer>
+    <c:import url="templates/footer.jsp"/>
+</footer>
+
 </body>
 </html>

@@ -3,6 +3,7 @@ package metube.services;
 import metube.domain.entities.Tube;
 import metube.domain.models.service.TubeServiceModel;
 import metube.domain.models.view.TubeAllViewModel;
+import metube.domain.models.view.TubeDetailsViewModel;
 import metube.repositories.TubeRepository;
 import metube.util.ModelMapper;
 
@@ -41,5 +42,15 @@ public class TubeServiceImpl implements TubeService {
                 ).collect(Collectors.toList());
 
         return allViewModels;
+    }
+
+    @Override
+    public TubeDetailsViewModel getByName(String name) {
+        Tube tube = this.tubeRepository.findByName(name);
+        if(tube != null){
+            return this.modelMapper.map(tube, TubeDetailsViewModel.class);
+        }
+
+        return null;
     }
 }
