@@ -7,7 +7,7 @@
 <body>
 <div class="container">
     <main>
-        <div class="jumbotron text-center">
+        <div class="jumbotron text-center mb-0">
             <h1>Welcome to MeTube!</h1>
             <hr/>
             <h4>Cool app in beta version</h4>

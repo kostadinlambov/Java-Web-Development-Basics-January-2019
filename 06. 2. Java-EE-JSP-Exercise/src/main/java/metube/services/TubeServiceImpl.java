@@ -18,14 +18,14 @@ public class TubeServiceImpl implements TubeService {
     }
 
     @Override
-    public void saveTube(TubeServiceModel tubeServiceModel) throws Exception {
+    public void saveTube(TubeServiceModel tubeServiceModel){
         Tube tube = this.modelMapper.map(tubeServiceModel, Tube.class);
 
         Tube savedTube = this.tubeRepository.save(tube);
-
-        if(savedTube == null){
-            throw new Exception("Something went wrong!");
-        }
+//
+//        if(savedTube == null){
+//            throw new Exception("Something went wrong!");
+//        }
 
     }
 }
