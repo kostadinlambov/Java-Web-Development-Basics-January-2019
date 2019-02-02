@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="06. 2. Java-EE-JSP-Exercise" />
+        <module name="me-tube" />
       </profile>
     </annotationProcessing>
   </component>

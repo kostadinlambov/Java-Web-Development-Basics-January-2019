@@ -2,10 +2,10 @@ package metube.repositories;
 
 import java.util.List;
 
-public interface GenericRepository<Entity, Key> {
+public interface GenericRepository<Entity, Id> {
     Entity save(Entity entity);
 
-    Entity findById(Key id);
+    Entity findById(Id id);
 
     List<Entity> getAll();
 }
