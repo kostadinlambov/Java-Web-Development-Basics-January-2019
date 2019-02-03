@@ -9,7 +9,7 @@
 <body>
 <div class="container">
     <main>
-        <% TubeDetailsViewModel tubeDetailsViewModel = (TubeDetailsViewModel) request.getSession().getAttribute("tubeDetailsViewModel"); %>
+        <% TubeDetailsViewModel tubeDetailsViewModel = (TubeDetailsViewModel) request.getAttribute("tubeDetailsViewModel"); %>
         <% String name = request.getParameter("tubeName"); %>
         <div class="jumbotron text-center mb-0">
             <% if (tubeDetailsViewModel == null) {%>

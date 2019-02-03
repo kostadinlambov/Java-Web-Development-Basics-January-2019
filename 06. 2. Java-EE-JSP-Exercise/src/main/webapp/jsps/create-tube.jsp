@@ -21,7 +21,7 @@
                             <label for="title">Title:</label>
                         </div>
                         <div>
-                            <input type="text" id="title" name="title" required>
+                            <input type="text" id="title" name="title" >
                         </div>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                             <label for="description">Description:</label>
                         </div>
                         <div>
-                            <textarea id="description" name="description" cols="22" rows="4" required></textarea>
+                            <textarea id="description" name="description" cols="22" rows="4" ></textarea>
                         </div>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                             <label for="youTubeLink">YouTube Link:</label>
                         </div>
                         <div>
-                            <input type="text" id="youTubeLink" name="youTubeLink" required>
+                            <input type="text" id="youTubeLink" name="youTubeLink" >
                         </div>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                             <label for="uploader">Uploader:</label>
                         </div>
                         <div>
-                            <input type="text" id="uploader" name="uploader" required>
+                            <input type="text" id="uploader" name="uploader" >
                         </div>
                     </div>
                 </div>

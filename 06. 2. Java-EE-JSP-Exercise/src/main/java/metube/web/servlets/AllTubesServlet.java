@@ -26,7 +26,9 @@ public class AllTubesServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<TubeAllViewModel> allTubes = this.tubeService.getAll();
-        req.getSession().setAttribute("tubes", allTubes);
+
+        req.setAttribute("tubes", allTubes);
+
         req.getRequestDispatcher("/jsps/all-tubes.jsp").forward(req, resp);
     }
 }

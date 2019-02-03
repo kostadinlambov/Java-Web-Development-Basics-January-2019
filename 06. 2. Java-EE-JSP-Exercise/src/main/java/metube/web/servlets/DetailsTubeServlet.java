@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.net.URLDecoder;
 
 @WebServlet("/tubes/details")
 public class DetailsTubeServlet extends HttpServlet {
@@ -23,12 +24,11 @@ public class DetailsTubeServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String name = req.getParameter("tubeName");
+        String name = URLDecoder.decode(req.getQueryString().split("=")[1], "UTF-8");
 
         TubeDetailsViewModel tubeDetailsViewModel = this.tubeService.getByName(name);
 
-        req.getSession().setAttribute("tubeDetailsViewModel", tubeDetailsViewModel);
-
+        req.setAttribute("tubeDetailsViewModel", tubeDetailsViewModel);
         req.getRequestDispatcher("/jsps/details-tube.jsp").forward(req, resp);
     }
 }

@@ -6,31 +6,40 @@ import metube.domain.models.view.TubeAllViewModel;
 import metube.domain.models.view.TubeDetailsViewModel;
 import metube.repositories.TubeRepository;
 import metube.util.ModelMapper;
+import metube.util.ValidationUtil;
 
 import javax.inject.Inject;
+import javax.persistence.NoResultException;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class TubeServiceImpl implements TubeService {
     private final TubeRepository tubeRepository;
     private final ModelMapper modelMapper;
+    private final ValidationUtil validationUtil;
 
     @Inject
-    public TubeServiceImpl(TubeRepository tubeRepository, ModelMapper modelMapper) {
+    public TubeServiceImpl(TubeRepository tubeRepository, ModelMapper modelMapper, ValidationUtil validationUtil) {
         this.tubeRepository = tubeRepository;
         this.modelMapper = modelMapper;
+        this.validationUtil = validationUtil;
     }
 
     @Override
-    public void saveTube(TubeServiceModel tubeServiceModel) {
-        Tube tube = this.modelMapper.map(tubeServiceModel, Tube.class);
+    public void saveTube(TubeServiceModel tubeServiceModel) throws IllegalAccessException {
+        if(!this.validationUtil.isValid(tubeServiceModel)){
+            throw new IllegalAccessException("Required fields are missing or incorrect.");
+        }
 
-        Tube savedTube = this.tubeRepository.save(tube);
-//
-//        if(savedTube == null){
-//            throw new Exception("Something went wrong!");
-//        }
+        try{
+            TubeDetailsViewModel tubeFromDb = this.getByName(tubeServiceModel.getName());
+        }catch (NoResultException nre){
+            Tube tube = this.modelMapper.map(tubeServiceModel, Tube.class);
+            Tube savedTube = this.tubeRepository.save(tube);
+            return;
+        }
 
+        throw new IllegalArgumentException(String.format("Tube with name - \"%s\" already exists", tubeServiceModel.getName()));
     }
 
     @Override
@@ -38,8 +47,8 @@ public class TubeServiceImpl implements TubeService {
         List<Tube> tubeList = this.tubeRepository.getAll();
 
         List<TubeAllViewModel> allViewModels = tubeList.stream()
-                .map(tube -> this.modelMapper.map(tube, TubeAllViewModel.class)
-                ).collect(Collectors.toList());
+                .map(tube -> this.modelMapper.map(tube, TubeAllViewModel.class))
+                .collect(Collectors.toList());
 
         return allViewModels;
     }

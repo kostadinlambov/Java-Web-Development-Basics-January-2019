@@ -15,7 +15,7 @@
             <h4>Check our tubes below.</h4>
             <hr/>
             <div>
-                <% List<TubeAllViewModel> tubes = (List<TubeAllViewModel>) request.getSession().getAttribute("tubes"); %>
+                <% List<TubeAllViewModel> tubes = (List<TubeAllViewModel>) request.getAttribute("tubes"); %>
                 <%if (tubes.size() == 0) { %>
                 <h3>No tubes – <a href="/tubes/create">Create some!</a></h3>
                 <%} else {%>

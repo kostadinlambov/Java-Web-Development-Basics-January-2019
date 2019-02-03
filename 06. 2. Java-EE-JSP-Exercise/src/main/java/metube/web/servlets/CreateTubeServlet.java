@@ -4,6 +4,7 @@ import metube.domain.models.binding.TubeCreateBindingModel;
 import metube.domain.models.service.TubeServiceModel;
 import metube.services.TubeService;
 import metube.util.ModelMapper;
+import metube.util.ValidationUtil;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -17,11 +18,13 @@ import java.io.IOException;
 public class CreateTubeServlet extends HttpServlet {
     private final TubeService tubeService;
     private final ModelMapper modelMapper;
+    private final ValidationUtil validationUtil;
 
     @Inject
-    public CreateTubeServlet(TubeService tubeService, ModelMapper modelMapper) {
+    public CreateTubeServlet(TubeService tubeService, ModelMapper modelMapper, ValidationUtil validationUtil) {
         this.tubeService = tubeService;
         this.modelMapper = modelMapper;
+        this.validationUtil = validationUtil;
     }
 
     @Override
@@ -31,21 +34,19 @@ public class CreateTubeServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        String name = req.getParameter("title");
-//        String description = req.getParameter("description");
-//        String youTubeLink = req.getParameter("youTubeLink");
-//        String uploader = req.getParameter("uploader");
         TubeCreateBindingModel tubeCreateBindingModel = (TubeCreateBindingModel) req.getAttribute("tubeCreateBindingModel");
+
+        if(!this.validationUtil.isValid(tubeCreateBindingModel)){
+            throw new IllegalArgumentException("Required fields are missing or incorrect.");
+        }
 
         TubeServiceModel tubeServiceModel = this.modelMapper.map(tubeCreateBindingModel, TubeServiceModel.class);
 
-//        TubeServiceModel tubeServiceModel = new TubeServiceModel();
-//        tubeServiceModel.setName(name);
-//        tubeServiceModel.setDescription(description);
-//        tubeServiceModel.setYouTubeLink(youTubeLink);
-//        tubeServiceModel.setUploader(uploader);
-
-        this.tubeService.saveTube(tubeServiceModel);
+        try {
+            this.tubeService.saveTube(tubeServiceModel);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
 
         resp.sendRedirect("/tubes/details?tubeName="+ tubeServiceModel.getName());
     }

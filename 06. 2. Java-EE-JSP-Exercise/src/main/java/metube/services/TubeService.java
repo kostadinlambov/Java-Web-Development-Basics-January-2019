@@ -7,7 +7,7 @@ import metube.domain.models.view.TubeDetailsViewModel;
 import java.util.List;
 
 public interface TubeService {
-    void saveTube(TubeServiceModel tubeServiceModel);
+    void saveTube(TubeServiceModel tubeServiceModel) throws IllegalAccessException;
 
     List<TubeAllViewModel> getAll();
 

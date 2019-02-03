@@ -10,13 +10,13 @@ import java.io.IOException;
 
 @WebFilter("/tubes/create")
 public class TubeCreateFilter implements Filter {
+
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
 
-        if(req.getMethod().toLowerCase().equals("post")){
+        if (req.getMethod().toLowerCase().equals("post")) {
             TubeCreateBindingModel tubeCreateBindingModel = new TubeCreateBindingModel();
 
             String name = req.getParameter("title");
