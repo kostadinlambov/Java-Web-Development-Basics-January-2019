@@ -7,26 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91fe79d0-07c4-4dae-abac-aa359af500a1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/metube/util/ValidationUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/metube/util/ValidationUtilImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/metube/web/servlets/ErrorHandlerServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/jsps/error-page.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/metube/domain/models/binding/TubeCreateBindingModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/metube/domain/models/binding/TubeCreateBindingModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/metube/repositories/TubeRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/metube/repositories/TubeRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/metube/services/TubeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/metube/services/TubeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/metube/services/TubeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/metube/services/TubeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/metube/util/HtmlReader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/metube/web/filters/TubeCreateFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/metube/web/filters/TubeCreateFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/metube/web/servlets/AllTubesServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/metube/web/servlets/AllTubesServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/metube/web/servlets/CreateTubeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/metube/web/servlets/CreateTubeServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/metube/web/servlets/DetailsTubeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/metube/web/servlets/DetailsTubeServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/metube/web/servlets/IndexServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/metube/web/servlets/IndexServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsps/all-tubes.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsps/all-tubes.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsps/create-tube.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsps/create-tube.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsps/details-tube.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsps/details-tube.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/me-tube-1.0-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/me-tube-1.0-SNAPSHOT/WEB-INF/web.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -117,8 +98,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/metube/domain/models/binding/TubeCreateBindingModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="42" column="12" lean-forward="true" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
+            <state relative-caret-position="612">
+              <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -264,10 +245,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.1 SoftUni" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="217" />
+    <option name="y" value="78" />
+    <option name="width" value="1562" />
+    <option name="height" value="969" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -502,7 +483,7 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549160694645" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549161261599" />
     <property name="database.console.LAST_STATE" value="true" />
     <property name="javascript.nodejs.core.library.configured.version" value="8.9.4" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Social-Network/SocialNetwork/Server" />
@@ -629,7 +610,7 @@
       <workItem from="1549107220429" duration="159000" />
       <workItem from="1549107493954" duration="10000" />
       <workItem from="1549107592614" duration="5991000" />
-      <workItem from="1549117362292" duration="39745000" />
+      <workItem from="1549117362292" duration="40041000" />
     </task>
     <task id="LOCAL-00001" summary="Added TubeServiceModel and TubeServiceImpl">
       <created>1549123024567</created>
@@ -673,11 +654,18 @@
       <option name="project" value="LOCAL" />
       <updated>1549139756347</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added Error Handling">
+      <created>1549161142020</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1549161142020</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45905000" />
+    <option name="totallyTimeSpent" value="46201000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -695,7 +683,7 @@
       <window_info anchor="bottom" id="Database Console" weight="0.32936078" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4582882" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4582882" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.38786566" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -772,7 +760,8 @@
     <MESSAGE value="Added AllTubeServlet and all-tubes.jsp" />
     <MESSAGE value="Added DetailsTubeServlet and deatils-tubes.jsp" />
     <MESSAGE value="Added TubeCreateFilter" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added TubeCreateFilter" />
+    <MESSAGE value="Added Error Handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Error Handling" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1093,8 +1082,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/metube/domain/models/binding/TubeCreateBindingModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="42" column="12" lean-forward="true" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
+        <state relative-caret-position="612">
+          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
