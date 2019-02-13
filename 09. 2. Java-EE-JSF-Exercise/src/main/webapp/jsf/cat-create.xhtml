@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+>
+
+
+<ui:composition template="templates/base-layout.xhtml">
+    <ui:define name="main-content">
+        <div class="jumbotron justify-content-center jumbotron-background">
+            <div class="row">
+                <div class="col col-md-12 d-flex justify-content-center">
+                    <h1>Create Cat!</h1>
+                </div>
+            </div>
+            <hr class="hr-background"/>
+            <h:form id="j_id_p" name="j_id_p" method="post" action="/jsf/cat-create.xhtml"
+                    enctype="application/x-www-form-urlencoded">
+                <div class="row">
+                    <div class="col-md-12  d-flex justify-content-center">
+                        <div class="form-group">
+                            <h:outputLabel for="name" value="Name"/>
+                            <h:inputText value="" id="name" name="name" type="text" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 d-flex justify-content-center">
+                        <div class="form-group">
+                            <h:outputLabel value="Breed" for="breed"/>
+                            <h:inputText id="breed" name="breed" type="text" value=""
+                                         class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 d-flex justify-content-center">
+                        <div class="form-group">
+                            <h:outputLabel value="Color" for="color"/>
+                            <h:inputText id="color" name="color" type="text" value=""
+                                         class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 d-flex justify-content-center">
+                        <div class="form-group">
+                            <h:outputLabel value="Age" for="age"/>
+                            <h:inputText id="age" name="age" type="text" value=""
+                                         class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 d-flex justify-content-center">
+                        <div class="form-group">
+                            <h:outputLabel value="Price" for="price"/>
+                            <h:inputText id="price" name="price" type="text" value=""
+                                         class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <hr class="hr-background"/>
+                <div class="row">
+                    <div class="col-md-12 d-flex justify-content-center">
+                        <h:outputLabel value="Gender" class="mr-4" for="gender"/>
+                        <!--<h:selectOneRadio value = "#{userData.data}" id="gender">-->
+                        <h:selectOneRadio id="gender">
+                            <f:selectItem itemValue="male" itemLabel="Male"/>
+                            <f:selectItem itemValue="female" itemLabel="Female"/>
+                        </h:selectOneRadio>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 d-flex justify-content-center">
+                        <div class="form-check">
+                            <h:selectBooleanCheckbox id="catPassportCheckbox" name="catPassportCheckbox" value="false"
+                                                     class="form-check-input"/>
+                            <h:outputLabel value="Has passport" class="form-check-label mr-4"
+                                           for="catPassportCheckbox"/>
+                        </div>
+                    </div>
+                </div>
+                <hr class="hr-background"/>
+                <div class="row">
+                    <div class="col-md-12 d-flex justify-content-center">
+                        <div class="form-group">
+                            <h:outputLabel value="Added On" for="catAddedOnInput"/>
+                            <span id="catAddedOnInput" class="ui-calendar form-control">
+                                <!--<p:outputLabel for="popup" value="Popup:" />-->
+                                <p:calendar id="popup" value="#{calendarView.date2}" />
+                            <!--<h:inputText-->
+                                    <!--id="catAddedOnInput_input"-->
+                                    <!--name="catAddedOnInput_input"-->
+                                    <!--type="text"-->
+                                    <!--class="ui-inputfield ui-widget ui-state-default ui-corner-all"-->
+                            <!--/>-->
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="hr-background"/>
+                <div class="row">
+                    <div class="col-md-12 d-flex justify-content-center">
+                        <h:commandButton action="#" value="Create Cat" class="btn btn-success"/>
+                    </div>
+                </div>
+                <h:inputHidden type="hidden" name="j_id_p_SUBMIT" value="1"/>
+                <h:inputHidden type="hidden" name="javax.faces.ViewState" id="ViewState_1"
+                               value="QUZFNzkwODE2RkY4RURCOTAwMDAwMDAx" autocomplete="off"/>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>
+
+</html>
