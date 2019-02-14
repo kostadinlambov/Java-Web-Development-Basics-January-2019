@@ -5,7 +5,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+>
 
 <ui:composition template="templates/base-layout.xhtml">
     <ui:define name="main-content">
@@ -16,23 +18,38 @@
                 </div>
             </div>
             <hr class="hr-background"/>
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Breed</th>
-                    <th scope="col">Color</th>
-                    <th scope="col">Gender</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Added On</th>
-                </tr>
-                </thead>
-                <tbody id="j_id_p:tbody_element">
-                <tr>
-                    <td></td>
-                </tr>
-                </tbody>
-            </table>
+            <h:dataTable value="#{catAllBean.cats}" var="cat"
+                         styleClass="cat-table table-striped"
+                         headerClass="cat-table-header table-striped"
+                         rowClasses="cat-table-odd-row,cat-table-even-row, table-striped"
+            >
+                <h:column>
+                    <!-- Column Name-->
+                    <f:facet name="header">Name</f:facet>
+                    <!--row record-->
+                    #{cat.name}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Breed</f:facet>
+                    #{cat.breed}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Color</f:facet>
+                    #{cat.color}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Gender</f:facet>
+                    #{cat.gender}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Price</f:facet>
+                    $#{cat.price}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Added on</f:facet>
+                    #{cat.date}
+                </h:column>
+            </h:dataTable>
         </div>
     </ui:define>
 </ui:composition>

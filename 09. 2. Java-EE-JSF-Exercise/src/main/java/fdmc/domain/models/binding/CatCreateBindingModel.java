@@ -1,13 +1,12 @@
-package fdmc.domain.entities;
+package fdmc.domain.models.binding;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.faces.convert.DateTimeConverter;
+import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Date;
 
-@Entity(name = "cats")
-public class Cat extends BaseEntity {
+public class CatCreateBindingModel {
     private String name;
     private String breed;
     private String color;
@@ -17,10 +16,11 @@ public class Cat extends BaseEntity {
     private Date date;
     private Boolean hasPassport;
 
-    public Cat() {
+    public CatCreateBindingModel() {
     }
 
-    @Column(name = "name", nullable = false, unique = true)
+    @NotNull
+    @Size(min = 2, max = 10)
     public String getName() {
         return this.name;
     }
@@ -29,7 +29,8 @@ public class Cat extends BaseEntity {
         this.name = name;
     }
 
-    @Column(name = "breed", nullable = false)
+    @NotNull
+    @Size(min = 5, max = 20)
     public String getBreed() {
         return this.breed;
     }
@@ -38,7 +39,7 @@ public class Cat extends BaseEntity {
         this.breed = breed;
     }
 
-    @Column(name = "color", nullable = false)
+    @NotNull
     public String getColor() {
         return this.color;
     }
@@ -47,7 +48,9 @@ public class Cat extends BaseEntity {
         this.color = color;
     }
 
-    @Column(name = "age", nullable = false)
+    @NotNull
+    @Min(1)
+    @Max(31)
     public Integer getAge() {
         return this.age;
     }
@@ -56,7 +59,7 @@ public class Cat extends BaseEntity {
         this.age = age;
     }
 
-    @Column(name = "gender", nullable = false)
+    @NotNull
     public String getGender() {
         return this.gender;
     }
@@ -65,7 +68,8 @@ public class Cat extends BaseEntity {
         this.gender = gender;
     }
 
-    @Column(name = "price", nullable = false)
+    @NotNull
+    @DecimalMin(value = "0.01")
     public BigDecimal getPrice() {
         return this.price;
     }
@@ -74,16 +78,16 @@ public class Cat extends BaseEntity {
         this.price = price;
     }
 
-    @Column(name = "date", nullable = false)
+    @NotNull
     public Date getDate() {
-        return this.date;
+        return  this.date;
     }
 
     public void setDate(Date date) {
         this.date = date;
     }
 
-    @Column(name = "has_passport", nullable = false)
+    @NotNull
     public Boolean getHasPassport() {
         return this.hasPassport;
     }

@@ -7,13 +7,28 @@
       xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <ui:component>
-    <nav class="navbar navbar-expand-lg navbar-background"><a href="index.xhtml" class="navbar-brand h4">FDMC</a><input id="j_id_e" name="j_id_e" type="button" value="" onclick="window.location.href = '/faces/jsf/index.xhtml'" class="navbar-toggler navbar-toggler-right" />
-        <span class="navbar-toggler-icon"></span>
+    <nav class="navbar navbar-expand-lg navbar-background">
+        <a href="/index.xhtml" class="navbar-brand h4">FDMC</a>
+
+        <!--<input id="j_id_e"-->
+        <!--name="j_id_e"-->
+        <!--type="button"-->
+        <!--value=""-->
+        <!--onclick="window.location.href = '/faces/jsf/index.xhtml'"-->
+        <!--class="navbar-toggler navbar-toggler-right" />-->
+
+        <h:link value="FDMC" outcome="/index.xhtml" class="nav-link h5"/>
         <div class="collapse navbar-collapse justify-content-end row" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active col-md-6"><a href="/jsf/cat-create.xhtml" style="white-space: nowrap;" class="nav-link h5">Create Cat</a>
+                <li class="nav-item active col-md-6">
+                    <!--<a href="/jsf/cat-create.xhtml" style="white-space: nowrap;" class="nav-link h5">Create Cat</a>-->
+                    <h:link value="Create Cat" outcome="/jsf/cat-create.xhtml" style="white-space: nowrap;"
+                            class="nav-link h5"/>
                 </li>
-                <li class="nav-item active col-md-6"><a href="/jsf/all-cats.xhtml" class="nav-link h5">All Cats</a>
+                <li class="nav-item active col-md-6">
+                    <!--<a href="/jsf/all-cats.xhtml" class="nav-link h5">All Cats</a>-->
+                    <h:link value="All Cats" outcome="/jsf/all-cats.xhtml" style="white-space: nowrap;"
+                            class="nav-link h5"/>
                 </li>
             </ul>
         </div>

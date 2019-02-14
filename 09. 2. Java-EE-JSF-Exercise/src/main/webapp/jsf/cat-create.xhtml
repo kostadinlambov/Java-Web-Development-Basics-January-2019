@@ -20,50 +20,109 @@
                 </div>
             </div>
             <hr class="hr-background"/>
-            <h:form id="j_id_p" name="j_id_p" method="post" action="/jsf/cat-create.xhtml"
-                    enctype="application/x-www-form-urlencoded">
+            <h:form>"
                 <div class="row">
-                    <div class="col-md-12  d-flex justify-content-center">
+                    <div class="col-md-12 d-flex justify-content-center mx-auto">
                         <div class="form-group">
                             <h:outputLabel for="name" value="Name"/>
-                            <h:inputText value="" id="name" name="name" type="text" class="form-control"/>
+                            <h:inputText
+                                    value="#{catCreateBean.catCreateBindingModel.name}"
+                                    id="name"
+                                    class="form-control"
+                                    required="true"
+                                    requiredMessage="Name is required!"
+                                    validatorMessage="Name length must be between 2 and 10 characters"
+                            >
+                                <f:validateLength minimum="2" maximum="10"/>
+                            </h:inputText>
                         </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group mx-auto mb-2">
+                        <h:message for="name" style="color:red"/>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12 d-flex justify-content-center">
                         <div class="form-group">
                             <h:outputLabel value="Breed" for="breed"/>
-                            <h:inputText id="breed" name="breed" type="text" value=""
-                                         class="form-control"/>
+                            <h:inputText
+                                    value="#{catCreateBean.catCreateBindingModel.breed}"
+                                    id="breed"
+                                    class="form-control"
+                                    required="true"
+                                    requiredMessage="Breed is required!"
+                                    validatorMessage="Breed length must be between 5 and 20 characters"
+                            >
+                                <f:validateLength minimum="5" maximum="20"/>
+                            </h:inputText>
                         </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group mx-auto mb-2">
+                        <h:message for="breed" style="color:red"/>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12 d-flex justify-content-center">
                         <div class="form-group">
                             <h:outputLabel value="Color" for="color"/>
-                            <h:inputText id="color" name="color" type="text" value=""
-                                         class="form-control"/>
+                            <h:inputText
+                                    value="#{catCreateBean.catCreateBindingModel.color}"
+                                    id="color"
+                                    class="form-control"
+                                    required="true"
+                                    requiredMessage="Color is required!"
+                            />
                         </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group mx-auto mb-2">
+                        <h:message for="color" style="color:red"/>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12 d-flex justify-content-center">
                         <div class="form-group">
                             <h:outputLabel value="Age" for="age"/>
-                            <h:inputText id="age" name="age" type="text" value=""
-                                         class="form-control"/>
+                            <p:inputNumber
+                                    id="age"
+                                    value="#{catCreateBean.catCreateBindingModel.age}"
+                                    class="form-control"
+                                    required="true"
+                                    requiredMessage="Age is required!"
+                                    validatorMessage="Age must be between 1 and 31"
+                            >
+                                <f:validateLongRange minimum="1" maximum="31"/>
+                            </p:inputNumber>
                         </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group mx-auto mb-2">
+                        <h:message for="age" style="color:red"/>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12 d-flex justify-content-center">
                         <div class="form-group">
                             <h:outputLabel value="Price" for="price"/>
-                            <h:inputText id="price" name="price" type="text" value=""
-                                         class="form-control"/>
+                            <p:inputNumber id="price"
+                                           value="#{catCreateBean.catCreateBindingModel.price}"
+                                           class="form-control"
+                                           required="true"
+                                           requiredMessage="Price is required!"
+                                           validatorMessage="Price must be between upper than 0.00"
+                            />
                         </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group mx-auto mb-2">
+                        <h:message for="price" style="color:red"/>
                     </div>
                 </div>
                 <hr class="hr-background"/>
@@ -71,17 +130,27 @@
                     <div class="col-md-12 d-flex justify-content-center">
                         <h:outputLabel value="Gender" class="mr-4" for="gender"/>
                         <!--<h:selectOneRadio value = "#{userData.data}" id="gender">-->
-                        <h:selectOneRadio id="gender">
+                        <h:selectOneRadio id="gender" value="#{catCreateBean.catCreateBindingModel.gender}"
+                                          required="true" requiredMessage="Gender is required!">
                             <f:selectItem itemValue="male" itemLabel="Male"/>
                             <f:selectItem itemValue="female" itemLabel="Female"/>
                         </h:selectOneRadio>
                     </div>
                 </div>
                 <div class="row">
+                    <div class="form-group mx-auto mb-2">
+                        <h:message for="gender" style="color:red"/>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col-md-12 d-flex justify-content-center">
                         <div class="form-check">
-                            <h:selectBooleanCheckbox id="catPassportCheckbox" name="catPassportCheckbox" value="false"
-                                                     class="form-check-input"/>
+                            <h:selectBooleanCheckbox
+                                    id="catPassportCheckbox"
+                                    name="catPassportCheckbox"
+                                    value="#{catCreateBean.catCreateBindingModel.hasPassport}"
+                                    class="form-check-input"
+                            />
                             <h:outputLabel value="Has passport" class="form-check-label mr-4"
                                            for="catPassportCheckbox"/>
                         </div>
@@ -94,21 +163,50 @@
                             <h:outputLabel value="Added On" for="catAddedOnInput"/>
                             <span id="catAddedOnInput" class="ui-calendar form-control">
                                 <!--<p:outputLabel for="popup" value="Popup:" />-->
-                                <p:calendar id="popup" value="#{calendarView.date2}" />
-                            <!--<h:inputText-->
-                                    <!--id="catAddedOnInput_input"-->
-                                    <!--name="catAddedOnInput_input"-->
-                                    <!--type="text"-->
-                                    <!--class="ui-inputfield ui-widget ui-state-default ui-corner-all"-->
-                            <!--/>-->
+                                <p:calendar
+                                        id="popup"
+                                        value="#{catCreateBean.catCreateBindingModel.date}"
+                                        required="true"
+                                        requiredMessage="Added On is required!">
+                                    <f:convertDateTime pattern="m/d/yy"/>
+                                    <!--<f:convertDateTime display="both"  pattern = "m/d/yy" />-->
+                                    <!--<f:convertDateTime timeZone="CET" display="both" pattern = "m/d/yy" />-->
+                                </p:calendar>
                             </span>
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="form-group mx-auto mb-2">
+                        <h:message for="popup" style="color:red"/>
+                    </div>
+                </div>
+                <!--<h:outputText value = "3/24/19" >-->
+                <!--<f:convertDateTime pattern = "dd/MM/yyyy" />-->
+                <!--</h:outputText>-->
+                <!--<h:outputText value = "3/24/19" >-->
+                <!--<f:convertDateTime pattern = "dd/mm/yyyy" />-->
+                <!--</h:outputText>-->
+                <!--<h:outputText value = "3/5/19" >-->
+                <!--<f:convertDateTime pattern = "mm/dd/yy" />-->
+                <!--</h:outputText> <br/>-->
+                <!--<h:outputText value = "3/5/19" >-->
+                <!--<f:convertDateTime pattern = "m/d/yy" />-->
+                <!--</h:outputText> <br/>-->
+                <!--<h:outputText value = "3/5/19" >-->
+                <!--<f:convertDateTime pattern = "m/dd/yyyy" />-->
+                <!--</h:outputText><br/>-->
+                <!--<h:outputText value = "3/5/19" >-->
+                <!--<f:convertDateTime pattern = "m/dd/yyyy" />-->
+                <!--</h:outputText><br/>-->
+                <!--<h:outputText value = "3/5/19" >-->
+                <!--<f:convertDateTime pattern = "m/d/yy" />-->
+                <!--</h:outputText><br/>-->
                 <hr class="hr-background"/>
                 <div class="row">
                     <div class="col-md-12 d-flex justify-content-center">
-                        <h:commandButton action="#" value="Create Cat" class="btn btn-success"/>
+                        <h:commandButton action="#{catCreateBean.createCat}" value="Create Cat"
+                                         class="btn btn-success"/>
                     </div>
                 </div>
                 <h:inputHidden type="hidden" name="j_id_p_SUBMIT" value="1"/>
