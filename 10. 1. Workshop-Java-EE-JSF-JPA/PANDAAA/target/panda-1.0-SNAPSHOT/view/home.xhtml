@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+<ui:composition template="templates/base-layout.xhtml">
+    <ui:define name="main-content">
+        <main class="mt-3">
+            <c:choose>
+                <c:when test="#{session.getAttribute('role') == 'Admin'}">
+                    <h1 class="text-center">Hello, Administrator #{session.getAttribute('username')}!</h1>
+                </c:when>
+                <c:otherwise>
+                    <h1 class="text-center">Hello, #{session.getAttribute('username')}!</h1>
+                </c:otherwise>
+            </c:choose>
+            <hr class="hr-2 bg-panda"/>
+            <div class="d-flex justify-content-between">
+                <div class="w-25 bg-white">
+                    <h2 class="text-center">Pending</h2>
+                    <div class="border-panda p-3">
+                        <ui:repeat value="#{homeBean.pendingPackages}" var="aPackage">
+                            <div class="p-2 d-flex justify-content-around">
+                                <h4 class="w-75">#{aPackage.description}</h4>
+                                <h:link outcome="details" class="btn bg-panda text-white w-25" value="Details"/>
+                            </div>
+                        </ui:repeat>
+                    </div>
+                </div>
+                <div class="w-25 bg-white">
+                    <h2 class="text-center">Shipped</h2>
+                    <div class="border-panda p-3">
+                        <ui:repeat value="#{homeBean.shippedPackages}" var="aPackage">
+                            <div class="p-2 d-flex justify-content-around">
+                                <h4 class="w-75">#{aPackage.description}</h4>
+                                <h:link outcome="details" class="btn bg-panda text-white w-25" value="Details"/>
+                            </div>
+                        </ui:repeat>
+                    </div>
+                </div>
+                <div class="w-25 bg-white">
+                    <h2 class="text-center">Delivered</h2>
+                    <div class="border-panda p-3">
+                        <ui:repeat value="#{homeBean.deliveredPackages}" var="aPackage">
+                            <div class="p-2 d-flex justify-content-around">
+                                <h4 class="w-75">#{aPackage.description}</h4>
+                                <h:link outcome="details" class="btn bg-panda text-white w-25" value="Details"/>
+                            </div>
+                        </ui:repeat>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </ui:define>
+</ui:composition>
+</html>
