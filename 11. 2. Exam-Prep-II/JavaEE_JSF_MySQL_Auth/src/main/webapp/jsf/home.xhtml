@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<ui:composition template="templates/base-layout.xhtml">
+    <ui:define name="main-content">
+        <main>
+            <hr class="my-2"/>
+            <div class="text-center mt-3">
+                <h4  class="text-info">
+                    <h:link value="Welcome, #{session.getAttribute('username')}" outcome="#{pageContext.request.contextPath}/jsf/profile?id=#{session.getAttribute('id')}" />
+                </h4>
+
+                    <!--<h4 class="text-info">Welcome, #{session.getAttribute('username')}</h4>-->
+                <!--</h:link>-->
+            </div>
+            <hr class="my-4"/>
+            <div class="container">
+                <div class="row mb-4 d-flex justify-content-around flex-wrap">
+                    <ui:repeat value="#{userAllHomePageBean.userAllViewModels}" var="currentUser" >
+                        <div class="col-md-3 d-flex flex-column text-center mt-4 mx-auto">
+                            <h:graphicImage
+                                    library="app-lib"
+                                    value="/resources/app-lib/img/#{currentUser.gender.name().toLowerCase()}.png"
+                                    class="img-thumbnail mx-auto"
+                                    width="200"
+                                    height="200"
+                            />
+                            <h5 class="text-center">#{currentUser.username}</h5>
+                            <h:form>
+                                <h:commandButton value="Add Friend" action="#{addFriendBean.addFriend(currentUser.id)}" class="btn btn-info">
+                                    <f:param name="studentId" value="#{currentUser.id}" />
+                                </h:commandButton>
+                            </h:form>
+
+                        </div>
+                    </ui:repeat>
+
+
+                </div>
+                <!--<div class="row mb-4 d-flex justify-content-around">-->
+                <!--<div class="col-md-2 d-flex flex-column text-center">-->
+                <!--<img src="png/male.png" class="img-thumbnail" width="200" height="200">-->
+                <!--<h5 class="text-center">Toncho</h5>-->
+                <!--<a href="/friends/add?name=Toncho" class="btn btn-info">Add Friend</a>-->
+                <!--</div>-->
+                <!--</div>-->
+            </div>
+            <hr class="my-3"/>
+        </main>
+
+    </ui:define>
+</ui:composition>
+
+
+</html>
