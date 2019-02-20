@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<ui:composition template="templates/base-layout.xhtml">
+    <ui:define name="main-content">
+        <main class="mt-3">
+            <c:choose>
+                <c:when test="#{session.getAttribute('role') == 'Admin'}">
+                    <h1 class="text-center">Hello, Administrator #{session.getAttribute('username')}!</h1>
+                </c:when>
+                <c:otherwise>
+                    <h1 class="text-center">Hello, #{session.getAttribute('username')}!</h1>
+                </c:otherwise>
+            </c:choose>
+            <hr class="hr-2 bg-panda" />
+            <div class="d-flex justify-content-between">
+                <div class="w-25 bg-white">
+                    <h2 class="text-center">Pending</h2>
+                    <div class="border-panda p-3">
+                        <div class="p-2 d-flex justify-content-around">
+                            <h4 class="w-75">IPhone XS Case</h4>
+                            <a href="" class="btn bg-panda text-white w-25">Details</a>
+                        </div>
+                        <div class="p-2 d-flex justify-content-around">
+                            <h4 class="w-75">TV table</h4>
+                            <a href="" class="btn bg-panda text-white w-25">Details</a>
+                        </div>
+                        <div class="p-2 d-flex justify-content-around">
+                            <h4 class="w-75">Chushkopek</h4>
+                            <a href="" class="btn bg-panda text-white w-25">Details</a>
+                        </div>
+                        <div class="p-2 d-flex justify-content-around">
+                            <h4 class="w-75">Office Chair</h4>
+                            <a href="" class="btn bg-panda text-white w-25">Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-25 bg-white">
+                    <h2 class="text-center">Shipped</h2>
+                    <div class="border-panda p-3">
+                        <div class="p-2 d-flex justify-content-around">
+                            <h4 class="w-75">1959 Irish Bourbon</h4>
+                            <a href="" class="btn bg-panda text-white w-25">Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-25 bg-white">
+                    <h2 class="text-center">Delivered</h2>
+                    <div class="border-panda p-3">
+                        <div class="p-2 d-flex justify-content-around">
+                            <h4 class="w-75">Dog Toy</h4>
+                            <a href="" class="btn bg-panda text-white w-25">Acquire</a>
+                        </div>
+                        <div class="p-2 d-flex justify-content-around">
+                            <h4 class="w-75">Mineral Water</h4>
+                            <a href="" class="btn bg-panda text-white w-25">Acquire</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </ui:define>
+</ui:composition>
+
+
+</html>
