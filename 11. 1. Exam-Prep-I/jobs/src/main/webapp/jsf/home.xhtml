@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<ui:composition template="templates/base-layout.xhtml">
+    <ui:define name="main-content">
+        <main>
+            <hr class="my-3"/>
+            <div class="text-center mb-3">
+                <h4 class="text-info">Welcome, #{session.getAttribute('username')}</h4>
+            </div>
+            <hr class="my-3"/>
+            <div class="container">
+                <div class="row mb-4 d-flex justify-content-around">
+                    <ui:repeat value="#{jobApplicationAllBean.jobApplicationAllViewModelList}" var="jobApp">
+                        <div class="col-md-3 d-flex flex-column text-center">
+                            <h:graphicImage
+                                    value="/resources/app-lib/jpg/#{jobApp.sector.name().toLowerCase()}.jpg"
+                                    class="img-thumbnail" width="300" height="300"
+                            />
+                            <h5 class="text-center">#{jobApp.profession}</h5>
+                            <h:link class="btn btn-info"
+                                    value="Details"
+                                    outcome="#{pageContext.request.contextPath}/jsf/jobs/details.xhtml?id=#{jobApp.id}"
+                            />
+
+
+                            <h:link class="btn btn-danger"
+                                    value="Delete"
+                                    outcome="#{pageContext.request.contextPath}/jsf/jobs/delete.xhtml?id=#{jobApp.id}"
+                            />
+
+
+                            <input type="hidden" name="id" value="#{jobApp.id}"/>
+                        </div>
+                    </ui:repeat>
+                </div>
+
+            </div>
+            <hr class="my-3"/>
+        </main>
+    </ui:define>
+</ui:composition>
+
+
+</html>

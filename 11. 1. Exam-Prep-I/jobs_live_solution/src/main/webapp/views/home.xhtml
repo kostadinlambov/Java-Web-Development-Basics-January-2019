@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:include src="templates/head.xhtml"/>
+<h:body>
+    <div class="container-fluid">
+        <ui:include src="templates/user-navbar.xhtml"/>
+        <main>
+            <hr class="my-3"/>
+            <div class="text-center mb-3">
+                <h4 class="text-info">Welcome, #{session.getAttribute("username")}</h4>
+            </div>
+            <hr class="my-3"/>
+            <div class="container">
+                <ui:repeat var="jobApplication" varStatus="status" value="#{jobApplicationListBean.jobApplications}">
+                    <h:outputText value="&lt;div class='row mb-4 d-flex justify-content-around'&gt;" escape="false"
+                                  rendered="#{status.index % 3 == 0}"/>
+                    <div class="col-md-3 d-flex flex-column text-center">
+                        <h:graphicImage library="img" name="#{jobApplication.sector}.jpg"
+                                        class="img-thumbnail" width="300" height="300"/>
+                        <h5 class="text-center">#{jobApplication.profession}</h5>
+                        <h:link value="Details" outcome="details-job?id=#{jobApplication.id}" class="btn btn-info" />
+                        <h:link value="Delete" outcome="delete-job?id=#{jobApplication.id}" class="btn btn-danger" />
+                    </div>
+                    <h:outputText value="&lt;/div&gt;" escape="false" rendered="#{status.index % 3 == 2}" />
+                </ui:repeat>
+                <h:outputText value="&lt;/div&gt;" escape="false" rendered="#{jobApplicationListBean.getJobApplications().size() % 3 != 0}" />
+            </div>
+            <hr class="my-3"/>
+        </main>
+        <ui:include src="templates/footer.xhtml"/>
+    </div>
+</h:body>
+</html>
