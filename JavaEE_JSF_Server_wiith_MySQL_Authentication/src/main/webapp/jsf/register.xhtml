@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition template="templates/base-layout.xhtml">
+    <ui:define name="main-content">
+        <main class="mt-3">
+            <h1 class="text-center text-torshia">Register</h1>
+            <hr class="bg-panda w-50 hr-2"/>
+            <h:form class="mx-auto w-50">
+                <div class="form-group">
+                    <h:outputLabel for="username" class="text-torshia" value="Username" />
+                    <h:inputText value="#{userRegisterBean.userRegisterBindingModel.username}"  class="form-control" id="username" />
+                </div>
+                <div class="form-group">
+                    <h:outputLabel for="password" class="text-torshia" value="Password" />
+                    <h:inputSecret value="#{userRegisterBean.userRegisterBindingModel.password}"  class="form-control" id="password" />
+
+                </div>
+                <div class="form-group">
+                    <h:outputLabel for="confirmPassword" class="text-torshia" value="Confirm Password" />
+                    <h:inputSecret value="#{userRegisterBean.userRegisterBindingModel.confirmPassword}"  class="form-control" id="confirmPassword" />
+
+                </div>
+                <div class="form-group">
+                    <h:outputLabel for="email" class="text-torshia" value="Email" />
+                    <h:inputText value="#{userRegisterBean.userRegisterBindingModel.email}"  class="form-control" id="email"  />
+
+                </div>
+                <div class="button-holder mt-4 d-flex justify-content-center">
+                    <h:commandButton value="Register" action="#{userRegisterBean.register}" class="btn bg-panda text-white"/>
+                </div>
+            </h:form>
+        </main>
+    </ui:define>
+</ui:composition>
+</html>
