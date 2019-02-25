@@ -1,0 +1,25 @@
+.bg-exodia {
+    background-color: #191970;
+}
+
+.text-exodia {
+    color: #191970;
+}
+
+.hr-2 {
+    height: 2px;
+}
+
+textarea {
+    resize: none;
+}
+
+/*span.alert{*/
+   /*display: block;*/
+    /*height: 50px;*/
+    /*padding: 1rem 0.5rem;*/
+/*}*/
+
+/*h1 {*/
+    /*font-size: 2.5rem*/
+/*}*/

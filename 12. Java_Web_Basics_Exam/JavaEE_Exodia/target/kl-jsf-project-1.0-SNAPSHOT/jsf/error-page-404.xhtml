@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<ui:composition template="templates/base-layout.xhtml">
+    <ui:define name="main-content">
+        <main class="mt-3 w-50 mx-auto">
+            <!--<div class="container">-->
+            <div class="jumbotron text-center mb-0">
+                <h1 class="text-info " style="font-size: 2rem">Something went wrong!</h1>
+                <hr/>
+                <h2 class="text-info" style="font-size: 1.5rem">Error information</h2>
+                <hr/>
+                <h4>
+                    Status code :
+                    <span class="text-danger">#{errorHandler.statusCode}</span>
+                </h4>
+                <hr/>
+                <h4>
+                    The request URI:
+                    <span class="text-danger">#{errorHandler.requestURI}</span>
+                </h4>
+                <hr/>
+                <c:choose>
+                    <c:when test="#{session.getAttribute('username') != null}">
+                        <div class="d-flex justify-content-around">
+                            <h:link class="btn btn-primary" value="Home"
+                                    outcome="#{pageContext.request.contextPath}/jsf/home.xhtml"/>
+                        </div>
+                    </c:when>
+                    <c:otherwise>
+                        <div class="d-flex justify-content-around">
+                            <h:link class="btn btn-primary" value="Home"
+                                    outcome="#{pageContext.request.contextPath}/jsf/index.xhtml"/>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
+            </div>
+            <!--</div>-->
+        </main>
+    </ui:define>
+</ui:composition>
+</html>

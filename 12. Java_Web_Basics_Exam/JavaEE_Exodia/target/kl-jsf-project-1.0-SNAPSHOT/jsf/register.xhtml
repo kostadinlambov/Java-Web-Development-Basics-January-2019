@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+>
+<ui:composition template="templates/base-layout.xhtml">
+    <ui:define name="main-content">
+        <main class="mt-3">
+            <hr class="bg-exodia hr-2"/>
+            <h1 class="text-center text-exodia">Register</h1>
+            <hr class="bg-exodia w-25 hr-2"/>
+            <h:form class="mx-auto w-25" >
+                <div class="form-group">
+                    <h:outputLabel for="username" class="text-exodia" value="Username" />
+                    <h:inputText
+                            value="#{userRegisterBean.userRegisterBindingModel.username}"
+                            class="form-control"
+                            id="username"
+                            required="true"
+                            requiredMessage="Username is required!"
+                            a:placeholder="Username..."
+                    >
+                        <f:validateLength minimum="4" maximum="16"/>
+                    </h:inputText>
+                </div>
+                <div class="form-group mx-auto ">
+                    <h:message for="username"  styleClass="form-control alert alert-danger" />
+                </div>
+
+                <div class="form-group">
+                    <h:outputLabel for="password" class="text-exodia mb-2" value="Password" />
+                    <h:inputSecret
+                            value="#{userRegisterBean.userRegisterBindingModel.password}"
+                            class="form-control"
+                            id="password"
+                            required="true"
+                            requiredMessage="Password is required!"
+                            validatorMessage="Password should be at least 4 and maximum 10 characters long!"
+                            a:placeholder="Password..."
+                    >
+                        <f:validateLength minimum="4" maximum="10"/>
+                    </h:inputSecret>
+                </div>
+                <div class="form-group mx-auto">
+                    <h:message for="password" styleClass="form-control alert alert-danger" />
+                </div>
+
+                <div class="form-group">
+                    <h:outputLabel for="confirmPassword" class="text-exodia mb-2" value="Confirm Password" />
+                    <h:inputSecret
+                            value="#{userRegisterBean.userRegisterBindingModel.confirmPassword}"
+                            class="form-control"
+                            id="confirmPassword"
+                            required="true"
+                            requiredMessage="Confirm Password is required!"
+                            a:placeholder="Confirm Password..."
+                    />
+                </div>
+                <div class="form-group mx-auto">
+                    <h:message for="confirmPassword" styleClass="form-control alert alert-danger" />
+                </div>
+
+                <div class="form-group">
+                    <h:outputLabel for="email" class="text-exodia mb-2" value="Email" />
+                    <h:inputText
+                            value="#{userRegisterBean.userRegisterBindingModel.email}"
+                            class="form-control"
+                            id="email"
+                            required="true"
+                            requiredMessage="Email is required!"
+                            validatorMessage="Invalid e-mail address!"
+                            a:placeholder="Email..."
+                    >
+                        <f:validateRegex pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
+                    </h:inputText>
+                </div>
+                <div class="form-group mx-auto ">
+                    <h:message for="email" styleClass="form-control alert alert-danger" />
+                </div>
+
+                <hr class="bg-exodia hr-2"/>
+
+                <div class="button-holder mt-4 d-flex justify-content-center">
+                    <h:commandButton value="Register" action="#{userRegisterBean.register}" class="btn bg-exodia text-white"/>
+                </div>
+            </h:form>
+        <hr class="bg-exodia hr-2 mt-5"/>
+        </main>
+    </ui:define>
+</ui:composition>
+</html>
